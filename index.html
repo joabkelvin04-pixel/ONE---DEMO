@@ -318,6 +318,202 @@
           text-align: center;
         }
       }
+      <style>
+  /* ---------- Core Theme Colors ---------- */
+  :root {
+    --brand-blue: #0b63d4;
+    --brand-green: #2bb673;
+    --brand-orange: #ff7a2d;
+    --muted: #6c757d;
+  }
+
+  body {
+    font-family: "Rubik", system-ui, -apple-system, "Segoe UI", Roboto,
+      "Helvetica Neue", Arial;
+    color: #222;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+
+  /* ---------- Top Bar ---------- */
+  .top-bar {
+    background: #f8f9fb;
+    font-size: 0.95rem;
+    padding: 0.45rem 0;
+  }
+  .top-bar a {
+    color: #333;
+    text-decoration: none;
+  }
+  .navbar-brand img {
+    max-height: 64px;
+  }
+
+  /* ---------- Hero Section ---------- */
+  .hero-home {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+  }
+  .hero-home h1 {
+    font-weight: 700;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1.3;
+  }
+  .hero-home p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  /* ---------- Product Cards ---------- */
+  .card-service img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+  }
+  .service-date {
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background: rgba(11, 99, 212, 0.95);
+    color: #fff;
+    padding: 6px 10px;
+    font-size: 0.85rem;
+    border-radius: 4px;
+  }
+  .service-card .card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  .service-card .card:hover {
+    transform: translateY(-6px);
+  }
+  .service-desc {
+    padding: 18px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .service-btn,
+  .post-btn {
+    color: var(--brand-blue);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  /* ---------- Footer ---------- */
+  .footer {
+    background: #121217;
+    color: #cfcfcf;
+    padding-top: 36px;
+  }
+  .footer a {
+    color: #cfcfcf;
+    text-decoration: none;
+  }
+
+  /* ---------- Contact Floating Button ---------- */
+  .contact-btn {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 999;
+    background: var(--brand-orange);
+    color: #fff;
+    padding: 12px 18px;
+    border-radius: 999px;
+    box-shadow: 0 10px 24px rgba(255, 122, 45, 0.18);
+    text-decoration: none;
+  }
+
+  /* ---------- Responsive Fixes ---------- */
+  @media (max-width: 1200px) {
+    .navbar-brand img {
+      max-height: 56px;
+    }
+  }
+
+  @media (max-width: 992px) {
+    .top-bar .col-md-2 {
+      display: none;
+    }
+    .hero-home {
+      padding: 100px 20px;
+      background-attachment: scroll;
+    }
+    .card-service img {
+      height: 200px;
+    }
+    .footer {
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .top-bar {
+      text-align: center;
+    }
+    .top-bar ul {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-left: 0;
+    }
+    .card-service img {
+      height: 180px;
+    }
+    .hero-home {
+      min-height: 100vh;
+      padding: 80px 20px;
+    }
+    .hero-home h1 {
+      font-size: 1.8rem;
+    }
+    .hero-home p {
+      font-size: 1rem;
+    }
+    .contact-btn {
+      right: 10px;
+      bottom: 10px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .hero-home {
+      padding: 60px 15px;
+    }
+    .card-service img {
+      height: 160px;
+    }
+    .footer .row > div {
+      margin-bottom: 20px;
+    }
+  }
+
+  @media (min-width: 1400px) {
+    .hero-home {
+      min-height: 85vh;
+    }
+  }
+
+  /* ---------- Animations ---------- */
+  .hero-home .btn {
+    transition: all 0.3s ease;
+  }
+  .hero-home .btn:hover {
+    transform: scale(1.05);
+  }
+</style>
+
     </style>
   </head>
   <body>
@@ -1090,6 +1286,7 @@
     </script>
   </body>
 </html>
+
 
 
 
