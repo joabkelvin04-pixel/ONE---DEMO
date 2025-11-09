@@ -167,6 +167,157 @@
           height: 160px;
         }
       }
+      /* Services (Products) section responsive grid fix */
+      @media (max-width: 991px) {
+        .top-bar .col-md-2 {
+          display: none; /* Hide middle logo for smaller devices */
+        }
+
+        .top-bar .col-md-5 {
+          text-align: center !important;
+        }
+
+        .navbar .btn {
+          margin-top: 10px;
+        }
+
+        .service-card .card img {
+          height: auto;
+        }
+
+        .service-card {
+          margin-bottom: 30px;
+        }
+
+        .service-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+      }
+
+      /* Make hero image fit perfectly on all screen sizes */
+      @media (max-width: 768px) {
+        .hero-home {
+          min-height: 90vh;
+          background-position: top center;
+          background-attachment: scroll;
+          padding-top: 100px;
+        }
+
+        .top-bar ul {
+          flex-wrap: wrap;
+          justify-content: center;
+          text-align: center;
+        }
+
+        .footer .row > div {
+          text-align: center;
+        }
+
+        .footer img {
+          margin: 0 auto;
+        }
+
+        .footer ul {
+          padding-left: 0;
+        }
+
+        .footer ul li {
+          list-style: none;
+        }
+      }
+
+      /* HERO SLIDESHOW BACKGROUND - images in /images/ (replace with your files) */
+      @keyframes heroSlide {
+        0% {
+          background-image: linear-gradient(
+              rgba(11, 99, 212, 0.85),
+              rgba(43, 182, 115, 0.6)
+            ),
+            url("images/hero1.jpg");
+        }
+        33% {
+          background-image: linear-gradient(
+              rgba(11, 99, 212, 0.85),
+              rgba(43, 182, 115, 0.6)
+            ),
+            url("images/hero2.jpg");
+        }
+        66% {
+          background-image: linear-gradient(
+              rgba(11, 99, 212, 0.85),
+              rgba(43, 182, 115, 0.6)
+            ),
+            url("images/hero3.jpg");
+        }
+        100% {
+          background-image: linear-gradient(
+              rgba(11, 99, 212, 0.85),
+              rgba(43, 182, 115, 0.6)
+            ),
+            url("images/hero4.jpg");
+        }
+      }
+
+      /* Tablets & mid-screens */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .hero-home {
+          min-height: 85vh;
+        }
+
+        .service-card .card img {
+          height: 200px;
+        }
+
+        .footer .col-md-6 {
+          margin-bottom: 30px;
+        }
+      }
+
+      /* Smaller phones (portrait) */
+      @media (max-width: 576px) {
+        .hero-home {
+          padding: 70px 16px;
+          min-height: 100vh;
+        }
+
+        .hero-home h1 {
+          font-size: 1.8rem;
+        }
+
+        .hero-home p {
+          font-size: 1rem;
+        }
+
+        .service-card .card-body {
+          padding: 1rem;
+        }
+
+        .contact-btn {
+          right: 10px;
+          bottom: 10px;
+          padding: 10px 16px;
+          font-size: 0.9rem;
+        }
+      }
+
+      /* Blog and testimonials spacing fix */
+      .card img {
+        object-fit: cover;
+        height: auto;
+        width: 100%;
+      }
+
+      /* Adjust footer for all devices */
+      .footer {
+        text-align: left;
+      }
+      @media (max-width: 768px) {
+        .footer {
+          text-align: center;
+        }
+      }
     </style>
   </head>
   <body>
@@ -939,5 +1090,6 @@
     </script>
   </body>
 </html>
+
 
 
