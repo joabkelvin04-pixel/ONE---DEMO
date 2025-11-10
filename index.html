@@ -13,10 +13,10 @@
       content="Peeyashwebs — Professional web design, branding and digital growth solutions."
     />
 
-    <!-- Fav icon (optional) -->
+    <!-- Fav icon -->
     <link rel="shortcut icon" href="assets/images/favicon.ico" />
 
-    <!-- CSS: Bootstrap 5 + FontAwesome + AOS -->
+    <!-- Bootstrap + FontAwesome + AOS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -27,22 +27,25 @@
     />
     <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
-    <!-- Site CSS (you can keep the inline styles, or move to assets/css/style.css) -->
+    <!-- Site CSS -->
     <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
 
     <style>
-      /* Core theme colors: blue, green, orange */
       :root {
         --brand-blue: #0b63d4;
         --brand-green: #2bb673;
         --brand-orange: #ff7a2d;
         --muted: #6c757d;
       }
+
       body {
         font-family: Rubik, system-ui, -apple-system, "Segoe UI", Roboto,
           "Helvetica Neue", Arial;
         color: #222;
+        overflow-x: hidden;
       }
+
+      /* ==================== BASE ELEMENTS ==================== */
       .top-bar {
         background: #f8f9fb;
         font-size: 0.95rem;
@@ -52,21 +55,27 @@
         color: #333;
         text-decoration: none;
       }
+
       .navbar-brand img {
         max-height: 64px;
+        height: auto;
       }
+
       .bg-primary-custom {
         background: linear-gradient(90deg, var(--brand-blue), #1b6fb8);
       }
+
       .text-accent {
         color: var(--brand-orange);
       }
+
       .card-service img {
         width: 100%;
         height: 220px;
         object-fit: cover;
         display: block;
       }
+
       .service-date {
         position: absolute;
         left: 12px;
@@ -77,10 +86,7 @@
         font-size: 0.85rem;
         border-radius: 4px;
       }
-      .blog-classic,
-      .service-card {
-        margin-bottom: 20px;
-      }
+
       .post,
       .service-card .card {
         background: #fff;
@@ -89,28 +95,18 @@
         box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
         position: relative;
       }
+
       .post-desc,
       .service-desc {
         padding: 18px;
       }
+
       .post-title h5,
       .service-title {
         margin: 0 0 8px 0;
         font-size: 1.05rem;
       }
-      .post-bottom,
-      .service-bottom {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 18px 18px;
-      }
-      .post-btn,
-      .service-btn {
-        color: var(--brand-blue);
-        text-decoration: none;
-        font-weight: 600;
-      }
+
       .footer {
         background: #121217;
         color: #cfcfcf;
@@ -120,15 +116,7 @@
         color: #cfcfcf;
         text-decoration: none;
       }
-      .working-hours h5 {
-        color: #fff;
-        font-size: 1rem;
-        margin-bottom: 0.6rem;
-      }
-      .media-icon li {
-        display: inline-block;
-        margin-right: 12px;
-      }
+
       .contact-btn {
         position: fixed;
         right: 20px;
@@ -142,231 +130,202 @@
         text-decoration: none;
       }
 
+      /* ==================== HERO ==================== */
       .hero-home {
         min-height: 100vh;
         display: flex;
         align-items: center;
-        background-image: linear-gradient(
-            rgba(11, 99, 212, 0.85),
-            rgba(43, 182, 115, 0.6)
-          ),
-          url("images/hero 1");
-        background-size: cover;
-        background-position: center;
+        justify-content: center;
+        padding: 80px 20px;
+        text-align: center;
+        background: url("images/hero.jpg") center/cover no-repeat;
         color: #fff;
       }
+
       .hero-home h1 {
+        font-size: clamp(1.8rem, 4vw, 3rem);
         font-weight: 700;
-      }
-      .service-card .card-body p {
-        margin-bottom: 0;
+        line-height: 1.3;
       }
 
-      /* Adjust text alignment on smaller screens */
-@media (max-width: 768px) {
-  .hero,
-  .hero-section,
-  .banner,
-  .header {
-    padding: 40px 20px;
-    text-align: center;
-  }
-}
+      .hero-home p {
+        font-size: clamp(0.95rem, 2vw, 1.25rem);
+        margin-top: 1rem;
+      }
 
-/* ========== RESPONSIVENESS FIXES ========== */
+      .hero-home .btn {
+        margin: 6px;
+      }
 
-/* HERO SECTION — make sure it fits mobile screen fully */
-.hero-home {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 80px 20px;
-  text-align: center;
-  background-size: cover;
-  background-position: center;
-}
+      /* ==================== RESPONSIVE FIXES ==================== */
 
-.hero-home h1 {
-  font-size: clamp(1.8rem, 4vw, 3rem);
-  line-height: 1.3;
-}
+      /* Navbar + Topbar */
+      @media (max-width: 991px) {
+        .top-bar .col-md-2 {
+          display: none;
+        }
+        .top-bar .col-md-5 {
+          text-align: center !important;
+        }
+        .navbar-brand img {
+          max-width: 140px;
+        }
+      }
 
-.hero-home p {
-  font-size: clamp(0.95rem, 2vw, 1.25rem);
-  margin-top: 1rem;
-}
+      /* Services & Blogs */
+      @media (max-width: 991px) {
+        .service-card .card img {
+          height: auto;
+        }
+        .service-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 6px;
+        }
+        .service-card {
+          margin-bottom: 30px;
+        }
+      }
 
-/* Make buttons wrap and space evenly */
-.hero-home .btn {
-  margin: 6px;
-}
+      /* Hero responsiveness */
+      @media (max-width: 768px) {
+        .hero-home {
+          min-height: 90vh;
+          padding-top: 100px;
+          background-position: top center;
+        }
+        .hero-home h1 {
+          font-size: 2rem;
+        }
+        .hero-home p {
+          font-size: 1rem;
+        }
+      }
 
-/* Ensure navbar fits small devices properly */
-.navbar-nav .nav-link {
-  font-size: 1rem;
-  padding: 8px 14px;
-}
+      /* Phones */
+      @media (max-width: 576px) {
+        .hero-home {
+          padding: 70px 16px;
+        }
+        .hero-home h1 {
+          font-size: 1.7rem;
+        }
+        .hero-home p {
+          font-size: 0.95rem;
+        }
+        .contact-btn {
+          right: 10px;
+          bottom: 10px;
+          padding: 10px 16px;
+          font-size: 0.9rem;
+        }
+        .footer {
+          text-align: center;
+        }
+        .footer ul {
+          padding-left: 0;
+          list-style: none;
+        }
+      }
 
-.navbar-brand img {
-  max-width: 140px;
-  height: auto;
-}
+      /* Tablets */
+      @media (min-width: 769px) and (max-width: 1024px) {
+        .hero-home {
+          min-height: 85vh;
+        }
+        .service-card .card img {
+          height: 200px;
+        }
+      }
 
-/* Prevent overflow on small devices */
-.container,
-.container-fluid {
-  max-width: 100%;
-  overflow-x: hidden;
-}
+      /* Footer general fix */
+      @media (max-width: 992px) {
+        .footer .row > div {
+          text-align: center;
+        }
+        .footer img {
+          margin: 0 auto;
+        }
+      }
 
-/* Services section responsive grid fix */
-@media (max-width: 991px) {
-  .top-bar .col-md-2 {
-    display: none; /* Hide middle logo for smaller devices */
-  }
+      /* HERO SLIDER */
+      .hero-slider {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+      }
 
-  .top-bar .col-md-5 {
-    text-align: center !important;
-  }
+      .hero-slider .slider {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
 
-  .navbar .btn {
-    margin-top: 10px;
-  }
+      .hero-slider .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        opacity: 0;
+        transition: opacity 1.5s ease-in-out;
+      }
 
-  .service-card .card img {
-    height: auto;
-  }
+      .hero-slider .slide.active {
+        opacity: 1;
+      }
 
-  .service-card {
-    margin-bottom: 30px;
-  }
+      .hero-content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: #fff;
+        padding: 0 20px;
+        background: rgba(0, 0, 0, 0.45);
+      }
 
-  .service-bottom {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 6px;
-  }
-}
+      .hero-content h1 {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 700;
+        line-height: 1.3;
+      }
 
-/* Make hero image fit perfectly on all screen sizes */
-@media (max-width: 768px) {
-  .hero-home {
-    min-height: 90vh;
-    background-position: top center;
-    background-attachment: scroll;
-    padding-top: 100px;
-  }
+      .hero-content p {
+        font-size: clamp(0.95rem, 2vw, 1.25rem);
+        margin-top: 1rem;
+      }
 
-  .top-bar ul {
-    flex-wrap: wrap;
-    justify-content: center;
-    text-align: center;
-  }
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .hero-slider {
+          height: 90vh;
+        }
+        .hero-content h1 {
+          font-size: 1.9rem;
+        }
+        .hero-content p {
+          font-size: 1rem;
+        }
+      }
 
-  /* === HERO SLIDESHOW BACKGROUND === */
-.hero-home {
-  position: relative;
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  animation: heroSlide 20s infinite alternate ease-in-out;
-}
-
-/* Change background image every few seconds */
-@keyframes heroSlide {
-  0% {
-    background-image: url("images/hero 1.jpg");
-  }
-  33% {
-    background-image: url("images/hero 2.jpg");
-  }
-  66% {
-    background-image: url("images/hero 3.png");
-  }
-  100% {
-    background-image: url("images/hero 4.jpg");
-  }
-}
-
-  .footer .row > div {
-    text-align: center;
-  }
-
-  .footer img {
-    margin: 0 auto;
-  }
-
-  .footer ul {
-    padding-left: 0;
-  }
-
-  .footer ul li {
-    list-style: none;
-  }
-}
-
-/* Tablets & mid-screens */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .hero-home {
-    min-height: 85vh;
-  }
-
-  .service-card .card img {
-    height: 200px;
-  }
-
-  .footer .col-md-6 {
-    margin-bottom: 30px;
-  }
-}
-
-/* Smaller phones (portrait) */
-@media (max-width: 576px) {
-  .hero-home {
-    padding: 70px 16px;
-    min-height: 100vh;
-  }
-
-  .hero-home h1 {
-    font-size: 1.8rem;
-  }
-
-  .hero-home p {
-    font-size: 1rem;
-  }
-
-  .service-card .card-body {
-    padding: 1rem;
-  }
-
-  .contact-btn {
-    right: 10px;
-    bottom: 10px;
-    padding: 10px 16px;
-    font-size: 0.9rem;
-  }
-}
-
-/* Blog and testimonials spacing fix */
-.card img {
-  object-fit: cover;
-  height: auto;
-  width: 100%;
-}
-
-/* Adjust footer for all devices */
-.footer {
-  text-align: left;
-}
-@media (max-width: 768px) {
-  .footer {
-    text-align: center;
-  }
-}
+      @media (max-width: 576px) {
+        .hero-slider {
+          height: 85vh;
+        }
+        .hero-content h1 {
+          font-size: 1.6rem;
+        }
+        .hero-content p {
+          font-size: 0.9rem;
+        }
+      }
     </style>
   </head>
+
   <body>
     <div class="page-wrapper">
       <!-- TOP BAR -->
@@ -390,7 +349,6 @@
                 </ul>
               </div>
             </div>
-
             <div class="col-md-2 d-none d-md-block text-center">
               <!-- logo center on larger screens -->
               <a class="navbar-brand" href="index.html">
@@ -398,7 +356,6 @@
                 <img src="images/logo.png" style="height: 100%" />
               </a>
             </div>
-
             <div class="col-md-5 col-sm-12 text-end">
               <div class="social-icons">
                 <ul class="list-inline mb-0">
@@ -428,7 +385,6 @@
           </div>
         </div>
       </div>
-
       <!-- HEADER / NAV -->
       <header id="site-header" class="header">
         <nav
@@ -450,7 +406,6 @@
             >
               <span class="navbar-toggler-icon"></span>
             </button>
-
             <div class="collapse navbar-collapse" id="mainNav">
               <ul class="navbar-nav mx-auto mb-2 mb-lg-0 align-items-lg-center">
                 <li class="nav-item">
@@ -459,7 +414,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="about.html">About</a>
                 </li>
-
                 <!-- Services dropdown (collapsing arrow works on mobile) -->
                 <li class="nav-item dropdown">
                   <a
@@ -495,7 +449,6 @@
                     </li>
                   </ul>
                 </li>
-
                 <li class="nav-item">
                   <a class="nav-link" href="portfolio.html">Portfolio</a>
                 </li>
@@ -506,7 +459,6 @@
                   <a class="nav-link" href="contact.html">Contact Us</a>
                 </li>
               </ul>
-
               <div class="d-none d-lg-block ms-lg-3">
                 <a class="btn btn-outline-primary" href="contact.html"
                   >Get a Quote</a
@@ -516,6 +468,69 @@
           </div>
         </nav>
       </header>
+      <!-- HERO SECTION WITH SLIDING IMAGES -->
+      <section class="hero-slider">
+        <div class="slider">
+          <div
+            class="slide active"
+            style="background-image: url('images/hero 1.jpg')"
+          >
+            <div class="hero-content">
+              <h1>Quality HVAC Materials for Every Installation</h1>
+              <p>
+                Supplying premium air conditioning parts, copper pipes,
+                compressors, fittings, and ventilation equipment built for
+                performance and durability.
+              </p>
+              <div class="mt-4">
+                <a href="products.html" class="btn btn-light btn-lg me-2"
+                  >Shop Now</a
+                >
+                <a href="contact.html" class="btn btn-outline-light btn-lg"
+                  >Get a Quote</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="slide" style="background-image: url('images/hero 2.jpg')">
+            <div class="hero-content">
+              <h1>Your Reliable Source for HVAC Supplies</h1>
+              <p>
+                We provide trusted brands and high-grade materials for cooling,
+                heating, and ventilation systems — available at the best market
+                prices.
+              </p>
+              <div class="mt-4">
+                <a href="about.html" class="btn btn-light btn-lg me-2"
+                  >About Us</a
+                >
+                <a href="contact.html" class="btn btn-outline-light btn-lg"
+                  >Reach Out</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="slide" style="background-image: url('images/hero 3.jpg')">
+            <div class="hero-content">
+              <h1>Everything You Need for HVAC Projects</h1>
+              <p>
+                From installation to maintenance — find all HVAC materials,
+                tools, and accessories you need in one trusted place.
+              </p>
+              <div class="mt-4">
+                <a href="products.html" class="btn btn-light btn-lg me-2"
+                  >Browse Products</a
+                >
+                <a href="contact.html" class="btn btn-outline-light btn-lg"
+                  >Contact Us</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <!-- PRODUCTS (3-column grid, 6 items) -->
       <section class="py-5">
@@ -524,7 +539,6 @@
             <h3 class="mb-0">Our Products</h3>
             <a href="products.html" class="text-muted">See all products →</a>
           </div>
-
           <div class="row g-4">
             <!-- Product 1 -->
             <div class="col-md-4" data-aos="fade-up">
@@ -555,7 +569,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Product 2 -->
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
               <div class="service-card">
@@ -585,7 +598,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Product 3 -->
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
               <div class="service-card">
@@ -605,7 +617,6 @@
                       supply for professional use.
                     </p>
                   </div>
-
                   <div class="service-bottom">
                     <small class="text-muted">Peeyash CoolTech</small>
                     <a class="service-btn" href="products.html#refrigerant"
@@ -616,7 +627,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Product 4 -->
             <div class="col-md-6 mt-4" data-aos="fade-up" data-aos-delay="80">
               <div class="service-card">
@@ -646,7 +656,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Product 5 -->
             <div class="col-md-6 mt-4" data-aos="fade-up" data-aos-delay="160">
               <div class="service-card">
@@ -676,7 +685,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Product 6 -->
             <div class="col-md-6 mt-4" data-aos="fade-up" data-aos-delay="240">
               <div class="service-card">
@@ -710,7 +718,6 @@
           <!-- /.row -->
         </div>
       </section>
-
       <!-- CLIENT REVIEWS -->
       <section class="py-5 bg-light">
         <div class="container">
@@ -721,7 +728,6 @@
               <span class="text-accent">Peeyash CoolTech Supplies</span>.
             </p>
           </div>
-
           <div class="row g-4">
             <!-- Testimonial 1 -->
             <div class="col-md-4" data-aos="fade-up">
@@ -739,7 +745,6 @@
                 </p>
               </div>
             </div>
-
             <!-- Testimonial 2 -->
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
               <div class="card border-0 shadow-sm p-4 h-100">
@@ -755,7 +760,6 @@
                 </p>
               </div>
             </div>
-
             <!-- Testimonial 3 -->
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
               <div class="card border-0 shadow-sm p-4 h-100">
@@ -774,7 +778,6 @@
           </div>
         </div>
       </section>
-
       <!-- LATEST BLOGS -->
       <section class="py-5">
         <div class="container">
@@ -782,7 +785,6 @@
             <h3 class="mb-0">Latest from Our Blog</h3>
             <a href="blog.html" class="text-muted">View More →</a>
           </div>
-
           <div class="row g-4">
             <!-- Blog 1 -->
             <div class="col-md-4" data-aos="fade-up">
@@ -803,7 +805,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Blog 2 -->
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="80">
               <div class="card h-100 shadow-sm border-0">
@@ -824,7 +825,6 @@
                 </div>
               </div>
             </div>
-
             <!-- Blog 3 -->
             <div class="col-md-4" data-aos="fade-up" data-aos-delay="160">
               <div class="card h-100 shadow-sm border-0">
@@ -846,7 +846,6 @@
           </div>
         </div>
       </section>
-
       <!-- SMALL CTA -->
       <section class="py-5 text-center bg-light">
         <div class="container">
@@ -864,7 +863,6 @@
           >
         </div>
       </section>
-
       <!-- Footer -->
       <footer class="footer">
         <div class="primary-footer py-5">
@@ -891,7 +889,6 @@
                   <li><span>Sunday</span> Closed</li>
                 </ul>
               </div>
-
               <div class="col-lg-3 col-md-6">
                 <h5>Quick <span class="text-accent">Links</span></h5>
                 <ul class="list-unstyled">
@@ -922,7 +919,6 @@
                   </li>
                 </ul>
               </div>
-
               <div class="col-lg-3 col-md-6">
                 <h5>Our <span class="text-accent">Solutions</span></h5>
                 <ul class="list-unstyled">
@@ -948,7 +944,6 @@
                   </li>
                 </ul>
               </div>
-
               <div class="col-lg-3 col-md-6">
                 <h5>Contact <span class="text-accent">Us</span></h5>
                 <ul class="list-unstyled small">
@@ -969,7 +964,6 @@
             </div>
           </div>
         </div>
-
         <div
           class="secondary-footer py-3 border-top"
           style="border-color: rgba(255, 255, 255, 0.03) !important"
@@ -982,28 +976,33 @@
           </div>
         </div>
       </footer>
-
       <!-- Request Quote floating button -->
       <a class="contact-btn" href="contact.html">Request Quote</a>
     </div>
     <!-- page-wrapper end -->
-
-    <!-- JS: Bootstrap bundle, AOS -->
+    <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
-
     <script>
-      // Init AOS
       if (window.AOS) AOS.init({ duration: 650, once: true });
-
-      // Set year
       document.getElementById("siteYear").textContent =
         new Date().getFullYear();
     </script>
+
+    <script>
+      const slides = document.querySelectorAll(".hero-slider .slide");
+      let current = 0;
+
+      function nextSlide() {
+        slides[current].classList.remove("active");
+        current = (current + 1) % slides.length;
+        slides[current].classList.add("active");
+      }
+
+      setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    </script>
   </body>
 </html>
-
-
 
 
 
